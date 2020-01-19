@@ -35,6 +35,8 @@ class UserDao: Crud {
     //MARK: - Update Methods
     //////////////////////////////////////////////////////
     
+    /// Though ObjectBox Provides put function for both object creation and update, it's safe to have two different DAO methods incase if we are going to have to change the DB from ObjectBox to something else in the future
+    
     func update(obj: AnyObject) {
         if let user = obj as? User {
             try! userBox.put(user)
